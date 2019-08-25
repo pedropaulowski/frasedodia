@@ -7,7 +7,7 @@ function numeroAleatorio() {
 function clicou() {
 	var button = document.querySelector('button');
 	button.setAttribute('class', 'click');
-	setTimeout(desclique, 1000);
+	setTimeout(desclique, 500);
 }
 
 function desclique() {

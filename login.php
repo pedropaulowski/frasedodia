@@ -10,11 +10,12 @@ require "classes/usuarios.class.php";
 $u = new Usuarios();
 
 if(isset($_POST['email']) && !empty($_POST['email'])) {
-    $email = addslaches($_POST['email']);
-    $senha = addslaches(md5($_POST['senha']));
+    $email = addslashes($_POST['email']);
+    $senha = addslashes(md5($_POST['senha']));
 
     if($u->logIn($email, $senha) == true) {
         $_SESSION['login'] = md5($email.$senha);
+        header("Location:set-frase.php");
     } else {
         return false;
     }
@@ -26,7 +27,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])) {
     E-mail:<br/>
     <input type="text" name="email" required/><br/><br/> 
     Senha:<br/>
-    <input type="text" name="senha" required/><br/><br/> 
+    <input type="password" name="senha" required/><br/><br/> 
 
     <input type="submit" value="Login"/>
 </form>

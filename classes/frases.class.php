@@ -19,41 +19,6 @@ class Frases {
         }
     }
 
-    public function getFraseById($id) {
-        $sql = "SELECT * FROM frases WHERE id = :id";
-        $sql = $this->pdo->prepare($sql);
-        $sql->bindValue(":id", $id);
-        $sql->execute();
-
-        if($sql->rowCount() > 0) {
-            $sql = $sql->fetch();
-            
-            return $sql['frase'];
-        } else {
-            return false;
-        }
-    }
-
-    public function pegarJsonFrases() {
-        $sql = "SELECT * FROM frases";
-        $sql = $this->pdo->query($sql);
-
-        if($sql->rowCount() > 0) {  
-            echo "<pre>";
-            echo "{<br/>";
-            $sql = $sql->fetchAll();
-            foreach ($sql as $lista) {
-                $id = $lista['id'];
-                $frase = $lista['frase'];
-
-                echo utf8_encode('  "'.$id.'"'.":".' "'.$frase.'"'.","."<br/>");
-            }
-            echo "}";
-        } else {
-            return false;
-        }
-    } 
-
     public function pegarFraseJson($id) {
         $sql = "SELECT * FROM frases WHERE id = :id";
         $sql = $this->pdo->prepare($sql);
