@@ -45,8 +45,8 @@ $(function(){
 			success:function(json){
 				$('.div').html(json.frase);
 			}, 
-			error:function() {
-				alert("erro");
+			error:function(e) {
+				console.log(e)
 			}
 		});
 	});

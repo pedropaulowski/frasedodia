@@ -3,7 +3,7 @@ class Frases {
     private $pdo;
 
     public function __construct() {
-        $this->pdo = new PDO("mysql:dbname=frasedodia", "root", "");
+        $this->pdo = new PDO("mysql:dbname=frasedodia;host=localhost", "root", "");
     }
 
     public function setFrase($frase) {
